@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function clearAllData()
+        {
+            document.getElementById('fno').value="" ; 
+            document.getElementById('sno').value="";
+            document.getElementById('res').value="";
+
+            document.getElementById('fno').focus();
+        }
+        function focusOnReload()
+        {
+            document.getElementById('fno').focus();
+        }
+        function checkEmptyData()
+        {
+            if(document.getElementById('fno').value.length==0)
+            {
+                alert('please enter the first data');
+                document.getElementById('fno').focus();
+            }
+            if(document.getElementById('sno').value.length==0)
+            {
+                
+                if(document.getElementById('fno').value.length==0)
+                {
+                    document.getElementById('fno').focus();
+                }
+                else
+                {
+                    alert('please enter the second data');
+                    document.getElementById('sno').focus();
+                }
+            }
+        }
+        function addElment()
+        {
+            checkEmptyData();
+            num1=parseInt(document.getElementById('fno').value);
+            num2=parseInt(document.getElementById('sno').value);
+
+            result=num1+num2;
+            document.getElementById('res').value=result;
+
+        }
+    </script>
+</head>
+<body onload="focusOnReload()">
+    <div class="box">
+
+        <table>
+
+            <tr>
+                <td>Enter the first number</td>
+                <td><input type="text" id="fno" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Enter the second number</td>
+                <td><input type="text" id="sno" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Result of Addition</td>
+                <td><input type="text" id="res" readonly></td>
+            </tr>
+            <tr>
+                <td><button type="submit" onclick="addElment()">Addition</button></td>
+                <td><button type="submit" onclick="clearAllData()">Clear</button></td>
+            </tr>
+
+
+        </table>
+
+
+    </div>
+</body>
+</html>
