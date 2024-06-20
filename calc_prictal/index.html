@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .main_body
+        {
+            width: 60%;
+            margin: 50px auto;
+            padding-left: 250px;
+            border: 2px solid black;
+        }
+    </style>
+    <script type="text/javascript">
+        function focusOnReload()
+        {
+            document.getElementById('fno').focus();
+        }
+        function isEmty()
+        {
+            if(document.getElementById('fno').value.length==0)
+            {
+                alert('plese enter the first number');
+                document.getElementById('fno').focus();
+            }
+            else if(document.getElementById('sno').value.length==0)
+            {
+                alert('plese enter the secod number');
+                documnet.getElementById('sno').focus();
+            }
+            else if(document.getElementById('sc').value=='select')
+            {
+                alert('plese select ane opration');
+                document.getElementById('sc').focus();
+            }
+        }
+        function doTask()
+        {
+            isEmty();
+            let num1=parseInt(document.getElementById('fno').value);
+            let num2=parseInt(document.getElementById('sno').value);
+
+            opretion=document.getElementById('sc').value;
+            switch(opretion)
+            {
+                case '+' :
+                document.getElementById('rno').value=num1+num2;
+                break;
+                case '-':
+                document.getElementById('rno').value=num1-num2;
+                break;
+                case '*':
+                document.getElementById('rno').value=num1*num2;
+                break;
+                case '/':
+                document.getElementById('rno').value=num1/num2;
+                break;
+            }
+            function clearElement()
+            {
+                
+            }
+            
+        }
+    </script>   
+</head>
+<body onload="focusOnReload()">
+    
+    <div class="main_body">
+            <caption>Calculater</caption>
+        <table>
+
+            <tr>
+                <td>Enter the data</td>
+                <td>
+                    <input type="text" id="fno">
+                </td>
+            </tr>
+            <tr>
+                <td>Enter the opration</td>
+                <td>
+                    <select name="" id="sc">
+                        <option value="select">Select Option</option>
+                        <option value="+">Addition</option>
+                        <option value="-">Substraction</option>
+                        <option value="*">Multplication</option>
+                        <option value="/">Divide</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Enter the secod number</td>
+                <td>
+                    <input type="text" id="sno">
+                </td>
+            </tr>
+            <tr>
+                <td> Result </td>
+                <td>
+                    <input type="text" id="rno" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td><button type="submit" onclick="doTask()">=</button></td>
+                <td><button type="submit" onclick="clearElement()">Clear</button></td>
+            </tr>
+        </table>
+
+
+    </div>
+
+</body>
+</html>
