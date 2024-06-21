@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Json Object with Json Object</title>
+        <script type="text/javascript">
+            let Json={
+                "id":1,
+                "Name":"pratham",
+                "personal":{
+                    "email":"p@.com",
+                    "contact":1235,
+                    "add":"pune"
+                }
+            };
+            console.log("ID is "+Json.id);
+            document.write("<h1>ID is "+Json.id+"</h1>");
+            document.write("<h1>Name is "+Json.name+"</h1>");
+            document.write("<h1>personal Info is "+(Json.personal).email+"</h1>");
+            document.write("<h1>personal Info is "+(Json.personal).contact+"</h1>");
+            document.write("<h1>personal Info is "+(Json.personal).add+"</h1>");
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
+
+<!-- Out Put:-
+ID is 1
+Name is undefined
+personal Info is p@.com
+personal Info is 1235
+personal Info is pune -->
