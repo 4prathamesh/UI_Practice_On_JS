@@ -196,6 +196,7 @@ console.log(regex.test(str));
 
 
 //       --- Positive and negetive Lookahead ---
+1)
 // Positive Lookahead --> ?=
 // Negetive Lookahead --> ?!
 let str = "qu";
@@ -210,3 +211,26 @@ console.log(regex1.test(str1));
 //            q
 //            true
 //            true
+
+
+2)
+let str="astronaut12";
+let regex = /(?=\w{5,})(?=\D{2,}\d{2})/;
+  console.log(regex.test(str));
+
+
+
+//       --- Reuse Patterns Using Capture Groups ---
+// 1)
+let str="regex regex";
+let RegEx=/(\w+)\s\1/;
+console.log(RegEx.test(str));
+console.log(str.match(RegEx));
+// out put:- ["regex regex","regex"]
+
+
+//2)
+let str="12 12 12";
+let regex=/(\d+)\s\1\s\1/; // check first number is equls to next 2 number  
+console.log(str.match(regex));
+out put :- ['12 12 12' , '12']
