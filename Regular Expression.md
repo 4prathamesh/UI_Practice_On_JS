@@ -102,3 +102,111 @@ let str ="the laste car on a train is the caboose";
 let regex=/caboose$/;
 console.log(regex.test(str));
 // out put :- true
+
+
+//   --- Match String with a to z and 0 to 9 by using (\w) ---
+let str="The five boxing wizards jump quickly. 123";
+let regex=/\w/g; /* \w is use for a to z and 0 to 9 verification */
+console.log(str.match(regex)); /* when we use .length we get how many character are present in String */
+out put:- 34
+
+
+//   ----  Match Everything int String but not Letters and numbers ---
+// let str="The five boxing wizards jump quickly.";
+// let regex=/\W/g; /* when we use capital character then we match non letters and number */
+// console.log(str.match(regex).length);
+// out put:- 6
+
+
+// ---  Match all number ---
+// let str="Your sandwich will be $5.00";
+// let regex=/\d/g; /* \d is use for digit */
+// console.log(str.match(regex).length); /* return the length of digit */
+// out put :- 3
+
+
+// ---- match all non number ---
+let str="Your sandwich will be $5.00";
+let regex=/\D/g;  /*  \D  is use for non number matching */
+console.log(str.match(regex).length);
+// out put:- 24
+
+
+//    --- Restrict Possible usernames (3 requirement for user name )----
+/*
+\d*$  --> \d is use for number and * is use for zero or more number $ is use for laste character of string
+1) If there are numbers, they must be at the end.  
+2) letters can be lowercase and uppercase (i)
+3) At least two characters long.   {3,}
+4) Two-letter names can't have numbers.
+(^[a-z]{3,}) --- >       ^ this symbol use for start [a-z] use for later 
+{3,}  means first parameter is for must be take 3 latter and second is for infinit
+*/
+let str="JackOfAllTrades54";
+let regex=/^[a-z]{3,}\d*$/ig;
+console.log(regex.test(str));
+// out put :- true
+
+
+
+//      ---- Match Whitespace ---
+let str="Whitespace is important in separating words";
+let regex=/\s/g; /* using \s we can find Whitespace */
+console.log(str.match(regex).length);
+out put :- 5
+
+
+
+//      ---  Match Not whitespace ----
+let str="Whitespace is important in separating words";
+let regex=/\S/g; /* Capital \S is use for find not WhiteSpace value */
+console.log(str.match(regex).length);
+// out put :- 38
+
+
+
+//      ---  Specify Upper and Lower Number of Matches
+let str ="Ohhh no";
+let regex=/Oh{3,4} no/; /* {min character , max Character} */
+console.log(regex.test(str));
+// out put:- true
+
+
+
+//      --- Specify Only the Lower Number Of Match ---
+let str="Hazzzzah";
+let regex=/z{3,}/g;
+console.log(regex.test(str));
+// out put :- true
+
+
+//       --- Specify Exact number of MAtch ---
+let str = "Timmmmber";
+let regex=/Tim{4}ber/;
+console.log(regex.test(str));
+// out put:- true
+
+
+
+//       --- Check for All or None ---
+let str="favorite";
+let regex =/favou?rite/; /* we use u? if u is present then return true or not then also true */
+console.log(regex.test(str));
+
+
+
+//       --- Positive and negetive Lookahead ---
+// Positive Lookahead --> ?=
+// Negetive Lookahead --> ?!
+let str = "qu";
+let str1 = "qt";
+let regex = /q(?=u)/;  // if after q , u is present then return true 
+let regex1 = /q(?!=u)/;  // if after q , u is not present then return true 
+console.log(str.match(regex));
+console.log(str.match(regex1));
+console.log(regex.test(str));
+console.log(regex1.test(str1));
+// out put :- q
+//            q
+//            true
+//            true
