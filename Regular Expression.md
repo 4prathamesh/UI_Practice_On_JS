@@ -53,12 +53,12 @@
 
 // ---- Match Single character not specified  ------
 //  let str="3 blind mice.";
-// let regex=/[^1-9]/g;  /* when we use ^ this symbole than we  not alow that value */
+// let regex=/[^1-9]/g;  /* when we use ^ this symbole than we  not alow that value means match method return all value but not 1 to 9 value*/
 // console.log(str.match(regex));
 
 // ---- Match Character that occer one or more time ----
 // let str ="praathameshaa";
-// let regex =/a+/g;
+// let regex =/a+/g;    /* match method return a if a present one or more than one time useing + */
 // console.log(str.match(regex));
 
 // ---   match character that occer zero or more time   ----
